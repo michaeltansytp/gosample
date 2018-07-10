@@ -2,16 +2,17 @@ package main
 
 import (
 	"flag"
-	"github.com/google/gops/agent"
 	"log"
 	"net/http"
 
+	"github.com/google/gops/agent"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-
-	"github.com/tokopedia/gosample/hello"
-	"github.com/tokopedia/logging/tracer"
 	"gopkg.in/tokopedia/grace.v1"
 	"gopkg.in/tokopedia/logging.v1"
+
+	"github.com/tokopedia/gosample/hello"
+	"github.com/tokopedia/gosample/problem"
+	"github.com/tokopedia/logging/tracer"
 )
 
 func main() {
@@ -32,7 +33,13 @@ func main() {
 	http.Handle("/metrics", promhttp.Handler())
 
 	http.HandleFunc("/hello", hwm.SayHelloWorld)
-	go logging.StatsLog()
+	// go logging.StatsLog()
+
+	http.HandleFunc("/problem1", problem.Problem1)
+	http.HandleFunc("/problem2", problem.Problem2)
+	http.HandleFunc("/problem3", problem.Problem3)
+	http.HandleFunc("/problem4", problem.Problem4)
+	http.HandleFunc("/problem5", problem.Problem5)
 
 	tracer.Init(&tracer.Config{Port: 8700, Enabled: true})
 
