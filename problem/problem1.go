@@ -57,6 +57,6 @@ func Problem1(w http.ResponseWriter, r *http.Request) {
 }
 
 // PrintSelf prints person's detail in a proper sentence
-func (p *person) PrintSelf() {
+func (p person) PrintSelf() {
 	fmt.Printf("%s is %d years old.\n", p.name, p.age)
 }

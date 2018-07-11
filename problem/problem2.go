@@ -14,15 +14,15 @@ import (
 	Reality: WHERE IS MY DATA!?
 */
 
-type product struct {
-	name  string `json:"name"`
-	price int    `json:"price"`
-	qty   int    `json:"qty"`
+type Product struct {
+	Name  string `json:"name"`
+	Price int    `json:"price"`
+	Qty   int    `json:"qty"`
 }
 
 // Problem2 marshals struct into json
 func Problem2(w http.ResponseWriter, r *http.Request) {
-	products := []product{
+	products := []Product{
 		{"Pen", 3000, 4},
 		{"Pineapple", 2000, 3},
 		{"Apple", 5000, 2},

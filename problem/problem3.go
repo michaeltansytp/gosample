@@ -18,7 +18,7 @@ import (
 // Problem3 discounts product price by 50% (i.e. price/2)
 func Problem3(w http.ResponseWriter, r *http.Request) {
 	// ...might as well copy-paste from problem two
-	products := []product{
+	products := []Product{
 		{"Pen", 3000, 4},
 		{"Pineapple", 2000, 3},
 		{"Apple", 5000, 2},
@@ -26,9 +26,9 @@ func Problem3(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// time to multiply the price
-	for _, v := range products {
-		v.price = v.price / 2
-		fmt.Printf("%s's price becomes %d\n", v.name, v.price) // log the calculation just to make sure!
+	for k, v := range products {
+		products[k].Price = v.Price / 2
+		fmt.Printf("%s's price becomes %d\n", v.Name, v.Price) // log the calculation just to make sure!
 	}
 
 	// marshal the json

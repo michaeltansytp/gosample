@@ -61,7 +61,6 @@ func CheckCheck(r *http.Request) (bool, error) {
 	}
 
 	if !form.Validate() {
-		fmt.Println(err.Error()) // log the error
 		return false, err
 	}
 

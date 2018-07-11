@@ -27,14 +27,17 @@ func Problem4(w http.ResponseWriter, r *http.Request) {
 		}
 	}()
 
+	err = NoError()
 	if err := NoError(); err != nil {
 		fmt.Println("[DEBUG] You should not see this at all")
 	}
 
+	err = BypassableError()
 	if err := BypassableError(); err != nil {
 		fmt.Println("[INFO] Meh, bypass this")
 	}
 
+	err = FatalError()
 	if err := FatalError(); err != nil {
 		fmt.Println("[ERROR] Now this is bad...")
 		return
